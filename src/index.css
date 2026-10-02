@@ -1,0 +1,29 @@
+@import './styles/tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-grey-10 text-grey-90 font-sans antialiased; font-size: 16px; line-height: normal; }
+}
+
+/* Figma text styles. Use these classes only; never ad-hoc font sizes. */
+@layer components {
+  .text-display { font: 300 42px/normal var(--font-sans); letter-spacing: -0.84px; }
+  .text-h1 { font: 500 32px/normal var(--font-sans); }
+  .text-h2 { font: 500 24px/normal var(--font-sans); }
+  .text-title { font: 500 20px/normal var(--font-sans); }
+  .text-body-bold { font: 700 16px/normal var(--font-sans); }
+  .text-body { font: 400 16px/normal var(--font-sans); }
+  .text-code { font: 400 14px/normal var(--font-mono); }
+  .text-small { font: 400 12px/normal var(--font-sans); }
+  .text-caption { font: 400 10px/15px var(--font-sans); letter-spacing: 1px; }
+  .text-caption-small { font: 700 8px/normal var(--font-mono); letter-spacing: 0.72px; }
+  .text-button { font: 500 14px/normal var(--font-sans); }
+  .text-code-small { font: 400 10px/15px var(--font-mono); letter-spacing: 1px; }
+  /* Figma "glass" effect (approximation) */
+  .glass { background: rgba(252, 252, 252, 0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+}
+
+@keyframes screen-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.screen-in { animation: screen-in 200ms ease-out; }

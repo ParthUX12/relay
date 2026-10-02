@@ -1,0 +1,21 @@
+/* SINGLE SOURCE OF TRUTH (from Figma export). */
+:root {
+  --color-primary: #d05d11;
+  --color-primary-bg: #ecddd3;
+  --grey-10: #fcfcfc; --grey-20: #eef0ed; --grey-35: #dcd7d7; --grey-50: #a39c98;
+  --grey-65: #716b6b; --grey-80: #363636; --grey-90: #202020;
+  --alert-red: #bd1616;    --alert-red-bg: #f2d0d0;
+  --alert-green: #12ba17;  --alert-green-bg: #d0f1d1;
+  --alert-yellow: #bfa813; --alert-yellow-bg: #f9f4d3;
+  --alert-info: #1646bd;   --alert-info-bg: #dfe6f4;
+
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Space Mono', ui-monospace, monospace;
+
+  /* TODO: confirm radii and spacing from Figma */
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 16px; --radius-xlg: 20px; --radius-full: 9999px;
+  --space-screen-x: 32px;
+
+  --shadow-1: 0 0 20px -4px rgba(0, 0, 0, 0.06);
+  --shadow-color: 0 0 40px 0 rgba(242, 137, 56, 0.2);
+}

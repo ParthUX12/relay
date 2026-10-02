@@ -1,0 +1,9 @@
+Frontend-only clickable prototype of a Figma design (desktop web app with left sidebar). No backend, APIs or auth.
+Stack: Vite + React + TypeScript + Tailwind + react-router-dom + lucide-react. Do not change the stack or folder structure.
+Rules:
+- Design values live in src/styles/tokens.css. Use Tailwind token classes (bg-primary, bg-primary-bg, text-grey-65, border-grey-35, text-alert-red, rounded-md, shadow-1, shadow-color) and Figma text styles (text-display, text-h1, text-h2, text-title, text-body-bold, text-body, text-code, text-small, text-caption, text-caption-small, text-button, text-code-small). Never hardcode hex values or font sizes. Fonts: Space Grotesk and Space Mono.
+- Sidebar structure is in src/nav.ts (Projects and Profile expand). Routes are in src/screens/index.ts, one file per screen in src/screens/.
+- Reuse src/components/ui/ (Button, Input, Card, Screen). Add shared components only when a pattern repeats 2+ times.
+- Mock data goes in src/data/mock.ts. Interactions use local useState only.
+- Use assets from public/assets/ (icons as SVG). Do not hand-draw icons.
+- Only edit files needed for the requested change. Do not rewrite unrelated files.
