@@ -36,11 +36,31 @@ function Item({ item, nested }: { item: NavItem; nested?: boolean }) {
 
 export default function Sidebar() {
   return (
-    <aside className="w-[260px] shrink-0 h-screen flex flex-col bg-grey-20 border-r border-grey-35 p-4 overflow-y-auto">
-      <div className="text-title mb-6 px-3">Logo</div>
+    <aside className="w-[260px] shrink-0 h-screen flex flex-col p-4 overflow-y-auto">
+      <div className="text-title mb-6 px-3 text-primary">{'<RE/AY>'}</div>
       <nav className="space-y-1">
         {navTop.map((i) => <Item key={i.label} item={i} />)}
       </nav>
+      <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+  {/* Other content */}
+        <div
+            style={{
+              marginTop: "auto",
+              padding: "10px 14px",
+              width: "100%",
+              backgroundColor: "#f2d0d0",
+              color: "#bd1616",
+              borderRadius: "20px",
+              fontSize: "12px",
+              fontWeight: 500,
+              boxSizing: "border-box",
+            }}
+          >
+            Still in the tinkering phase. <br/>This is a frontend only implementation. Some interactions and functionality are still being worked on.
+        </div>
+  {/* Your note div goes here */}
+      </div>
+      
       <div className="mt-auto pt-4"><Item item={navProfile} /></div>
     </aside>
   );
