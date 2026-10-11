@@ -4,7 +4,7 @@ import Screen from '../components/ui/Screen';
 export default function Logout() {
   return (
     <Screen title="Logout">
-      <p className="text-body text-grey-65">Replace with the Figma "Logout" screen.</p>
+      <p className="text-body text-grey-65">Under Construction</p>
     </Screen>
   );
 }

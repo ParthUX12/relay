@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import { user, workflowTemplates, type WorkflowTemplate } from '../data/mock';
@@ -18,9 +19,9 @@ function ServiceIcons({ icons }: { icons: string[] }) {
   );
 }
 
-function TemplateCard({ template, onSelect }: { template: WorkflowTemplate; onSelect: () => void }) {
+function TemplateCard({ template }: { template: WorkflowTemplate }) {
   return (
-    <button type="button" onClick={onSelect} className="block w-full text-left">
+    <button type="button" className="block w-full text-left">
       <Card className="h-full shadow-1 border border-grey-20 p-2 transition hover:shadow-color">
         <div className="flex items-start justify-between gap-3">
           <ServiceIcons icons={template.icons} />
@@ -44,16 +45,10 @@ export default function NewSession() {
   const [modeOpen, setModeOpen] = useState(false);
   const [mode, setMode] = useState('Auto Orchestrate');
   const [listening, setListening] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const selectTemplate = (template: WorkflowTemplate) => {
-    setPrompt(template.title);
-    setSubmitted(false);
-  };
+  const navigate = useNavigate();
 
   const submitPrompt = () => {
-    if (!prompt.trim()) return;
-    setSubmitted(true);
+    navigate('/session/seed-deck');
   };
 
   return (
@@ -77,7 +72,13 @@ export default function NewSession() {
           <div className="relative mx-auto mt-9 max-w-[580px] rounded-md border border-grey-20 bg-grey-10 p-2 shadow-color transition focus-within:border-primary">
             <textarea
               value={prompt}
-              onChange={(event) => { setPrompt(event.target.value); setSubmitted(false); }}
+              onChange={(event) => setPrompt(event.target.value)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                  event.preventDefault();
+                  submitPrompt();
+                }
+              }}
               placeholder="Ask me anything..."
               aria-label="Ask me anything"
               rows={2}
@@ -116,7 +117,7 @@ export default function NewSession() {
                 </button>
               </div>
             </div>
-            {submitted && <p className="text-small mt-2 text-alert-green">Your session prompt is ready to run.</p>}
+
           </div>
 
           <div className="mt-20">
@@ -131,7 +132,7 @@ export default function NewSession() {
             </div>
             <div className="grid gap-4 md:grid-cols-2">
               {workflowTemplates.map((template) => (
-                <TemplateCard key={template.title} template={template} onSelect={() => selectTemplate(template)} />
+                <TemplateCard key={template.title} template={template} />
               ))}
             </div>
           </div>

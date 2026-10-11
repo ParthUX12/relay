@@ -9,10 +9,12 @@ import Settings from './Settings';
 import Language from './Language';
 import Help from './Help';
 import Logout from './Logout';
+import Session from './Session';
 
 // ONE ENTRY PER FIGMA SCREEN. Sidebar links live in src/nav.ts.
 export const screens: { path: string; component: ComponentType }[] = [
   { path: '/', component: NewSession },
+  { path: '/session/seed-deck', component: Session },
   { path: '/projects', component: Projects },
   { path: '/projects/new', component: NewProject },
   { path: '/projects/configure', component: Configure },
